@@ -2,8 +2,6 @@
 
 Tout est cassé en voulant faire une syntax react pull request : #2
 
-Ce cour ma bien re fait comprendre que je detestais le front. Mélanger le visuel avec les instructions c'est pas beau et ça casse dès que on change un petit truc. 
-
 # links api
 
  - https://jsonplaceholder.typicode.com/todos
