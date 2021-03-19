@@ -1,10 +1,28 @@
-import Cards from './components/card';
+import Title from './components/title';
+import Footer from './components/footer';
+import Header from './components/header';
+import Card from './components/card';
+import Tasks from './components/tasks';
+import { Component } from 'react';
 
-class App {
+class App extends Component {
+  state = {
+    tasks: []
+  }
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ tasks: data })
+    })
+    .catch(console.log)
+  }
   render() {
     return (
       <div>
-        <Cards />
+        <Header />
+        <Tasks tasks={this.state.tasks} />
+        <Footer />
       </div>
     )
   }

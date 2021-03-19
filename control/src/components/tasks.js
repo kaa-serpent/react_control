@@ -26,14 +26,7 @@ const Tasks = ({ tasks }) => {
         <div class="card">
           <div class="card-body">
             <h4>{task.userId}</h4>
-            <h5 class="card-title">{task.title}</h5>
-            if (task.completed == "True") {
-              <p class="card-text">task completed</p>
-            }
-            else{
-              <p class="card-text">non completed</p>
-            }
-            
+            <h5 class="card-title">{task.title}</h5>            
           </div>
         </div>
       ))}
