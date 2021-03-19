@@ -1,15 +1,39 @@
 import React from 'react'
+import { Component } from 'react';
+
 
 const Tasks = ({ tasks }) => {
+  
   return (
     <div>
       <center><h1>task List</h1></center>
       {tasks.map((task) => (
+        /*
+        
+        Essaie d'appel d'api pour récupérer le nom de l'utilisateurs par rapport à la tache
+        Non fonctionel
+
+        componentDidMount() {
+          url = "https://jsonplaceholder.typicode.com/users?id=" + task.userId,
+          fetch(url)
+          .then(res => res.json())
+          .then((data) => {
+            this.setState({ user: data })
+          })
+          .catch(console.log)
+        },
+        */
         <div class="card">
           <div class="card-body">
+            <h4>{task.userId}</h4>
             <h5 class="card-title">{task.title}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{task.id}</h6>
-            <p class="card-text">{task.completed}</p>
+            if (task.completed == "True") {
+              <p class="card-text">task completed</p>
+            }
+            else{
+              <p class="card-text">non completed</p>
+            }
+            
           </div>
         </div>
       ))}
@@ -17,4 +41,4 @@ const Tasks = ({ tasks }) => {
   )
 };
 
-    export default Tasks
+export default Tasks

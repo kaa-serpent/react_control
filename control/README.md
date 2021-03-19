@@ -1,4 +1,7 @@
 
+
+Ce cour ma bien re fait comprendre que je detestait le front. Mélanger le visuel avec les instructions c'est pas beau et ça casse dès que on change un petit truc. 
+
 # links api
 
  - https://jsonplaceholder.typicode.com/todos

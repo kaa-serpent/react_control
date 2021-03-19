@@ -1,15 +1,28 @@
-import React from 'react'
+import Footer from './footer';
+import Header from './header';
+import Tasks from './tasks';
+import { Component } from 'react';
 
-function Card() {
-  return (
-  <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Steve Jobs</h5>
-    <h6 class="card-subtitle mb-2 text-muted">steve@apple.com</h6>
-    <p class="card-text">Stay Hungry, Stay Foolish</p>
-  </div>
-</div>
-  )
+function Cards (){
+  state = {
+    tasks: []
+  };
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ tasks: data })
+    })
+    .catch(console.log)
+  };
+  render() {
+    return (
+      <div>
+        <Header />
+        <Tasks tasks={this.state.tasks} />
+        <Footer />
+      </div>
+    )
+  }
 }
-
-export default Card
+export default Cards;
