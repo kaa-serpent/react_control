@@ -1,16 +1,33 @@
+import Footer from './components/footer';
+import Header from './components/header';
+import Tasks from './components/tasks';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { NavigationBar } from './components/NavigationBar';
+import React, {Component} from 'react';
 
-import React from 'react'
 
-function Title() {
-  return (
-  <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Steve Jobs</h5>
-    <h6 class="card-subtitle mb-2 text-muted">steve@apple.com</h6>
-    <p class="card-text">Stay Hungry, Stay Foolish</p>
-  </div>
-</div>
-  )
+class Card extends Component {
+  state = {
+    tasks: []
+  }
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ tasks: data })
+    })
+    .catch(console.log)
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+        <NavigationBar />
+        <Tasks tasks={this.state.tasks} />
+        <Footer />
+      </div>
+    )
+  }
 }
 
-export default Title
+export default Card;
